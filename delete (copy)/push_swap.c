@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erferrei <erferrei@student.42.fr>          #+#  +:+       +#+        */
+/*   By: erferrei <erferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-07-16 15:29:50 by erferrei          #+#    #+#             */
-/*   Updated: 2024-07-16 15:29:50 by erferrei         ###   ########.fr       */
+/*   Created: 2024/07/16 15:29:50 by erferrei          #+#    #+#             */
+/*   Updated: 2024/07/20 18:43:25 by erferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,19 @@ int	main(int ac, char **av)
 {
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
-	int				i;
+	static int		i;
 	int				*array;
-	int				size;
+	static int		size;
 
-	size = 0;
-	i = 1;
+	if (ac < 2)
+		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
-	while (i++ < ac)
+	while (++i < ac)
 	{
-		if (!is_digit(av[i - 1]) || !is_integer(av[i - 1]))
+		if (!is_digit(av[i]) || !is_integer(av[i]))
 			return (write(1, "Error\n", 6), free_list(&stack_a), 0);
-		insert_at_end(ft_atoi(av[i - 1]), &stack_a);
+		insert_at_end(ft_atoi(av[i]), &stack_a);
 	}
 	if (error(&stack_a, &stack_b) == 0)
 		return (0);
@@ -85,9 +85,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i++ < size)
 		per(array[i - 1], &stack_a, &stack_b);
-//	print_list(stack_b);
 	while (stack_b != NULL)
 		per2(&stack_a, &stack_b);
-//	print_list(stack_a);
 	return (free(array), free_list(&stack_a), free_list(&stack_b), 0);
 }

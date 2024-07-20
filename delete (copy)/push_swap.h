@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erferrei <erferrei@student.42.fr>          #+#  +:+       +#+        */
+/*   By: erferrei <erferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-07-17 22:39:01 by erferrei          #+#    #+#             */
-/*   Updated: 2024-07-17 22:39:01 by erferrei         ###   ########.fr       */
+/*   Created: 2024/07/17 22:39:01 by erferrei          #+#    #+#             */
+/*   Updated: 2024/07/20 18:31:10 by erferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			pushb(int index, int len,
 void			pusha(int index, int len,
 					struct s_stack **stack_a, struct s_stack **stack_b);
 int				len_arr(int *arr);
-void			index_arr_aux(int num, int a, int **i_array, int **s_array);
+int				index_arr_aux(int num, int a, int **i_array, int **s_array);
 int				*index_arr(struct s_stack *stack, int *size);
 void			per(int num, struct s_stack **stack_a,
 					struct s_stack **stack_b);;

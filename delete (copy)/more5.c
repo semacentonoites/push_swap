@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more.c                                             :+:      :+:    :+:   */
+/*   more5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erferrei <erferrei@student.42.fr>          #+#  +:+       +#+        */
+/*   By: erferrei <erferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-07-17 22:39:56 by erferrei          #+#    #+#             */
-/*   Updated: 2024-07-17 22:39:56 by erferrei         ###   ########.fr       */
+/*   Created: 2024/07/17 22:39:56 by erferrei          #+#    #+#             */
+/*   Updated: 2024/07/20 18:29:31 by erferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	per2(struct s_stack **stack_a, struct s_stack **stack_b)
 		pa(stack_b, stack_a);
 	}
 	else
-		pusha(find_index(*stack_b, highest), stack_len(*stack_b), stack_b, stack_a);
+		pusha(find_index(*stack_b, highest),
+			stack_len(*stack_b), stack_b, stack_a);
 }
 
 int	is_sorted(struct s_stack *stack)

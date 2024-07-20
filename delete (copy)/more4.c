@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more.c                                             :+:      :+:    :+:   */
+/*   more4.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erferrei <erferrei@student.42.fr>          #+#  +:+       +#+        */
+/*   By: erferrei <erferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-07-17 22:39:56 by erferrei          #+#    #+#             */
-/*   Updated: 2024-07-17 22:39:56 by erferrei         ###   ########.fr       */
+/*   Created: 2024/07/17 22:39:56 by erferrei          #+#    #+#             */
+/*   Updated: 2024/07/20 18:30:45 by erferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,21 @@ int	len_arr(int *arr)
 	return (i);
 }
 
-void	index_arr_aux(int num, int a, int **i_array, int **s_array)
+int	index_arr_aux(int num, int len, int **i_array, int **s_array)
 {
 	int	l;
 	int	j;
-	int	len;
 
-	len = len_arr(*s_array);
 	l = -1;
 	j = 0;
-	while (num > a)
+	while (num > 0)
 	{
 		l += len / log_two(len);
 		(*i_array)[j] = (*s_array)[l];
 		j++;
 		num--;
 	}
-	if (a == 1)
-		(*i_array)[j] = (*s_array)[len - 1];
+	return (j);
 }
 
 int	*index_arr(struct s_stack *stack, int *size)
@@ -62,7 +59,9 @@ int	*index_arr(struct s_stack *stack, int *size)
 	}
 	*size = num;
 	i_array = (int *)malloc(sizeof(int) * num);
-	index_arr_aux(num, a, &i_array, &s_array);
+	num = index_arr_aux(num - a, stack_len(stack), &i_array, &s_array);
+	if (a == 1)
+		(i_array)[num] = (s_array)[stack_len(stack) - 1];
 	free(s_array);
 	return (i_array);
 }
